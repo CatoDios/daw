@@ -18,7 +18,7 @@ export default class Header extends React.Component {
   }
   render() {
     return (
-      <header className="App-header h-50 p-3">
+      <header className="App-header p-3">
           <Row className="text-sm-left">
             <Col className="header-text">CachimboGO</Col>
           </Row>

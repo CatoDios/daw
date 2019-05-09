@@ -4,8 +4,13 @@
     background-color:orange;
     color: white;
     font-family: 'Roboto', sans-serif;
+    width: 100%;
 
   }
 .header-text{
   font-size: 200%;
 }
+#wrapper2{
+  display: flex;
+}
+

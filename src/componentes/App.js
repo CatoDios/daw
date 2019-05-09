@@ -31,60 +31,60 @@ class App extends Component {
      * Verifica si el usuario existe 
      * para restringir el acceso a la aplicacion
      */
-    componentWillMount(){
-        const usuario = JSON.parse(sessionStorage.getItem('user'));
-        if(usuario){
-            this.setState({
-                login: !this.state.login,
-                modal: !this.state.modal
-            });
-        }
-    }
-    /**
-     * Servicio para autenticar al usuario
-     * 
-     */
-    handleLogin(user, contra) {
-        const datos = {
-            usuario: user,
-            password: contra
-        }
-        PostData("usuarioAuth/",datos,true).then((result)=>{
-            if (result.usuario) {
-                sessionStorage.setItem('user', JSON.stringify(result));
+    componentWillMount() {
+            const usuario = JSON.parse(sessionStorage.getItem('user'));
+            if (usuario) {
                 this.setState({
-                    user: result,
                     login: !this.state.login,
                     modal: !this.state.modal
-                })
-            } else {
-                alert("Usuario Incorrecto");
+                });
             }
-
-        })
-
-    }
-    /**
-     * 
-     * @param {*} props 
-     * @param {*} estado 
-     * Registrar a un nuevo usuario
-     */
-    handleRegistrar(props,estado){
-        console.log(props);
-        PostData('usuario/',props).then((result)=>{
-            if(result){
-                alert('Usuario registrado con exito');
-                estado();
+        }
+        /**
+         * Servicio para autenticar al usuario
+         * 
+         */
+    handleLogin(user, contra) {
+            const datos = {
+                usuario: user,
+                password: contra
             }
-            console.log(result);
-        })
-    }
-    /**
-     * funcion para cerrar sesion
-     * 
-     */
-    handleLogout(){
+            PostData("usuarioAuth/", datos, true).then((result) => {
+                if (result.usuario) {
+                    sessionStorage.setItem('user', JSON.stringify(result));
+                    this.setState({
+                        user: result,
+                        login: !this.state.login,
+                        modal: !this.state.modal
+                    })
+                } else {
+                    alert("Usuario Incorrecto");
+                }
+
+            })
+
+        }
+        /**
+         * 
+         * @param {*} props 
+         * @param {*} estado 
+         * Registrar a un nuevo usuario
+         */
+    handleRegistrar(props, estado) {
+            console.log(props);
+            PostData('usuario/', props).then((result) => {
+                if (result) {
+                    alert('Usuario registrado con exito');
+                    estado();
+                }
+                console.log(result);
+            })
+        }
+        /**
+         * funcion para cerrar sesion
+         * 
+         */
+    handleLogout() {
         this.setState({
             login: !this.state.login,
             modal: !this.state.modal
@@ -95,24 +95,24 @@ class App extends Component {
         //https://github.com/trendmicro-frontend/react-sidenav
         const { children } = this.props;
         //comentario 2
-
-        if (this.state.login) {
-            return (
-                <div className="container-fluid">
-                    <Nav logout={this.handleLogout}/>
-                    <div className="ml-5">
-                        <Header/>
-                        <Section body={children}/>
-                        <Footer />  
-                    </div>
+        return (
+            <div id = "page-top" >
+            
+            <div id="wrapper2">
+            <Nav logout = { this.handleLogout }
+            /> 
+                <div id="content-wrapper" class="d-flex flex-column">
+                <Header/>
+                <Section body = { children }
+                
+            />
                 </div>
-            );
-        } else {
-            return (
-                <Login modal={this.state.modal} login={this.handleLogin} registrar={this.handleRegistrar}/>
-            )
-        }
-
+                
+            </div>
+             
+            </div>
+             
+        );
 
     }
 }
