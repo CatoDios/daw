@@ -94,6 +94,7 @@ class App extends Component {
     render() {
         //https://github.com/trendmicro-frontend/react-sidenav
         const { children } = this.props;
+        //comentario 2
 
         if (this.state.login) {
             return (
