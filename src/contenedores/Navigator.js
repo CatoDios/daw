@@ -20,11 +20,8 @@ class Navigator extends Component {
 
 <hr class="sidebar-divider my-0"/>
 
-<li class="nav-item active">
-  <a class="nav-link" href="index.html">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Inicio</span></a>
-</li>
+<div class="imagen">
+</div>
 
 <hr class="sidebar-divider"/>
 
