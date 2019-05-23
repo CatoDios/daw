@@ -95,25 +95,31 @@ class App extends Component {
         //https://github.com/trendmicro-frontend/react-sidenav
         const { children } = this.props;
         //comentario 2
-        return (
-            <div id = "page-top" >
-            
-            <div id="wrapper2">
-            <Nav logout = { this.handleLogout }
-            /> 
-                <div id="content-wrapper" class="d-flex flex-column">
-                <Header/>
-                <Section body = { children }
-                
-            />
-                </div>
-                
-            </div>
-             
-            </div>
-             
-        );
+        if (/*this.state.login*/true) {
+                return (
+                    <div id = "page-top" >
+                    <div id="wrapper2">
+                    <Nav logout = { this.handleLogout }
+                    /> 
+                        <div id="content-wrapper" class="d-flex flex-column">
+                        <Header/>
+                        <Section body = { children }
+                    />
 
+                        </div>
+                        
+                    </div>
+                    
+                    </div>
+                    
+                );
+
+        }else{
+            return (
+                <Login modal={this.state.modal} login={this.handleLogin} registrar={this.handleRegistrar}/>
+            )
+        }
+   
     }
 }
 

@@ -4,3 +4,13 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color:#f7f7f7;
 }
+
+#content-wrapper{
+  width: calc(100% - 14rem);
+  margin-left: auto;
+}
+
+.sidebar{
+  position: fixed;
+  z-index: 10;
+}
